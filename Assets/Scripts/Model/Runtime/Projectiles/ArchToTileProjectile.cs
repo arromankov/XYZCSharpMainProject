@@ -25,9 +25,11 @@ namespace Model.Runtime.Projectiles
             
             float localHeight = 0f;
             float totalDistance = _totalDistance;
+            const float ProjectileArcFactor = 0.6f;
 
-            float maxHeight = totalDistance * 0.6f;
-            localHeight = maxHeight * (-(t * 2 - 1) * (t * 2 - 1) + 1);
+            float maxHeight = totalDistance * ProjectileArcFactor;
+            float centeredT = t * 2 - 1;
+            localHeight = maxHeight * (-centeredT * centeredT + 1);
 
 
             Height = localHeight;
